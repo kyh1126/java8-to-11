@@ -1,4 +1,4 @@
-package me.jenny.java8to11;
+package me.jenny.java8to11._1_FunctionalInterfaceAndLambda;
 
 @FunctionalInterface    // 함수형 인터페이스 라는걸 명시해서 견고하게 관리 가능하다.
 public interface RunSomething {

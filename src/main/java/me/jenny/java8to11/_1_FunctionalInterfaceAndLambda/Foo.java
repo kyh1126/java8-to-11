@@ -1,4 +1,4 @@
-package me.jenny.java8to11;
+package me.jenny.java8to11._1_FunctionalInterfaceAndLambda;
 
 public class Foo {
     public static void main(String[] args) {
