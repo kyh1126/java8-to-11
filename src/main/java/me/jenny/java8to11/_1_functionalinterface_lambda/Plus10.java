@@ -1,4 +1,4 @@
-package me.jenny.java8to11._1_FunctionalInterfaceAndLambda;
+package me.jenny.java8to11._1_functionalinterface_lambda;
 
 import java.util.function.Function;
 
