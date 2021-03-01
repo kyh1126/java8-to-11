@@ -34,7 +34,7 @@ public class CompletableFutureMain {
 
         // 리턴값이 있는 경우: supplyAsync()
         CompletableFuture<String> future4 = CompletableFuture.supplyAsync(() -> {
-            System.out.println("Hello " + Thread.currentThread().getName());
+            System.out.println("Hello, " + Thread.currentThread().getName());
             return "supplyAsync!";
         });
         System.out.println(future4.get());
@@ -43,7 +43,7 @@ public class CompletableFutureMain {
         // - thenApply(Function): 리턴값을 받아서 다른 값으로 바꾸는 콜백
         // - thenAccept(Consumer): 리턴값을 또 다른 작업을 처리하는 콜백(리턴없이)
         // - thenRun(Runnable): 리턴값 받지 않고 다른 작업을 처리하는 콜백, Runnable 밖에 못 온다.
-        // - thenRunAsync(Runnable) 콜백 자체를 또 다른 쓰레드에서 실행할 수 있다.
+        // - thenRunAsync(Runnable): 콜백 자체를 또 다른 쓰레드에서 실행할 수 있다.
         CompletableFuture<String> future5 = CompletableFuture.supplyAsync(() -> {
             return " supplyAsync!";
         }).thenApply(s -> {
@@ -53,21 +53,21 @@ public class CompletableFutureMain {
         System.out.println(future5.get());
 
         CompletableFuture.supplyAsync(() -> {
-            System.out.print("Hello " + Thread.currentThread().getName());
+            System.out.print("Hello, " + Thread.currentThread().getName());
             return " supplyAsync!";
         }).thenAccept(s ->
                 System.out.println(s + " thenAccept, thread: " + Thread.currentThread().getName())
         );
 
         CompletableFuture.supplyAsync(() -> {
-            System.out.print("Hello " + Thread.currentThread().getName());
+            System.out.print("Hello, " + Thread.currentThread().getName());
             return " supplyAsync!";
         }).thenRun(() ->
                 System.out.println(" thenRun, thread: " + Thread.currentThread().getName())
         );
 
         CompletableFuture.supplyAsync(() -> {
-            System.out.print("Hello " + Thread.currentThread().getName());
+            System.out.print("Hello, " + Thread.currentThread().getName());
             return " supplyAsync!";
         }).thenRunAsync(() ->
                 System.out.println(" thenRunAsync, diff thread: " + Thread.currentThread().getName())
